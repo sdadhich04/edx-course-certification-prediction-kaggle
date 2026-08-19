@@ -80,10 +80,26 @@ written discussion sections.
   fully-completed version.
 - No Kaggle leaderboard placement is available to cite — only the
   notebook's own validation accuracy.
+- **The notebook contains an optional, Colab-only setup cell** (marked
+  "necessary only if you are running on Google Colab") that re-downloads
+  `edx_train.csv`/`edx_test.csv` from the course's file server via
+  `requests.get(...)`. Since both CSVs are already included in this repo,
+  that cell is unnecessary here — skip it (or let it run; it will just
+  re-fetch the same data) rather than assuming the data is missing because
+  that cell exists.
 
 ## Running this code
 
-Requires Python with `pandas`, `numpy`, and `scikit-learn`. Open
-`edx_certification_prediction.ipynb` in Jupyter — `edx_train.csv`,
+```
+pip install -r requirements.txt
+```
+
+Then open `edx_certification_prediction.ipynb` in Jupyter — `edx_train.csv`,
 `edx_test.csv`, and `edX_column_description.pdf` (column reference) are
-all included in this repo — and run all cells top to bottom.
+all included in this repo, so no additional data setup is needed — and run
+all cells top to bottom (see the note above about skipping the optional
+Colab-only download cell). This is one of two notebooks in this portfolio
+that runs immediately after cloning with no external data to obtain first.
+Dependency versions in `requirements.txt` are unpinned — the exact
+versions originally used weren't captured, so this lists package names
+only, not a locked environment.
